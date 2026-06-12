@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - MSA Scholarship Allocator{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1 class="mb-4">📊 Evaluator Dashboard</h1>
+
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>Evaluator Mode</strong> - Upload applications, review matches, and approve awards.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+
+    <div class="row pb-4">
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-label text-muted">Students Uploaded</div>
+                <div class="stat-number">{{ stats.total_students }}</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-label text-muted">Pending Awards</div>
+                <div class="stat-number" style="color: #ffc107;">{{ stats.pending_approvals }}</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-label text-muted">Approved Awards</div>
+                <div class="stat-number" style="color: #28a745;">{{ stats.approved_awards }}</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-label text-muted">Total Awards</div>
+                <div class="stat-number">{{ stats.total_awards }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">⚡ Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="/upload" class="btn btn-primary btn-lg">
+                            📤 Upload Applications
+                        </a>
+                        <a href="/review" class="btn btn-info btn-lg">
+                            👁️ Review Matches
+                        </a>
+                        <a href="/approve" class="btn btn-warning btn-lg">
+                            ✅ Approve Awards
+                        </a>
+                        <a href="/reports" class="btn btn-secondary btn-lg">
+                            📊 View Reports
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">📋 Processing Workflow</h5>
+                </div>
+                <div class="card-body">
+                    <ol style="line-height: 2;">
+                        <li><strong>Upload Applications</strong> - Import student data from CSV/Excel</li>
+                        <li><strong>Review Matches</strong> - See automatic scholarship suggestions</li>
+                        <li><strong>Approve Awards</strong> - Finalize award amounts and send notifications</li>
+                        <li><strong>View Reports</strong> - Export allocation summaries</li>
+                    </ol>
+                    <p class="small text-muted mt-3 mb-0">
+                        💡 The system automatically scores students and suggests optimal scholarship matches.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">📈 Current Status</h5>
+                            <p>Admin approves awards and sends notifications</p>
+                            <a href="/approve" class="btn btn-sm btn-primary">Go to Approve</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

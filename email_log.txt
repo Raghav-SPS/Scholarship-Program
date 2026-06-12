@@ -1,0 +1,333 @@
+
+================================================================================
+Email Log Entry - 2026-04-14 11:23:13
+================================================================================
+To: john@msu.edu
+Subject: Congratulations! You've Received an MSA Scholarship Award
+
+Body:
+Dear John Doe,
+
+Congratulations! You have been selected to receive a scholarship award from the Michigan State University Master of Science in Accounting program.
+
+AWARD DETAILS:
+==============
+Total Award Amount: $5,000.00
+Scholarship(s): Test Deloitte Scholarship
+
+• Test Deloitte Scholarship: $5,000.00\n
+
+Your award will help support your academic journey. Thank you for your dedication to excellence in accounting.
+
+Please contact the MSA Program office if you have any questions.
+
+Best regards,
+MSA Program Scholarship Committee
+Michigan State University
+
+
+Award ID: 2
+Student: John Doe
+Scholarship: TEST-DELOITTE
+Amount: $5000.00
+================================================================================
+
+================================================================================
+Email Log Entry - 2026-04-16 00:05:16
+================================================================================
+To: john.smith@msu.edu
+Subject: Congratulations! You've Received an MSA Scholarship Award
+
+Body:
+Dear John Michael Smith,
+
+Congratulations! You have been selected to receive a scholarship award from the Michigan State University Master of Science in Accounting program.
+
+AWARD DETAILS:
+==============
+Total Award Amount: $5,000.00
+Scholarship(s): E&Y
+
+• E&Y: $5,000.00\n
+
+Your award will help support your academic journey. Thank you for your dedication to excellence in accounting.
+
+Please contact the MSA Program office if you have any questions.
+
+Best regards,
+MSA Program Scholarship Committee
+Michigan State University
+
+
+Award ID: 1
+Student: John Michael Smith
+Scholarship: E&Y
+Amount: $5000.00
+================================================================================
+
+================================================================================
+Email Log Entry - 2026-04-16 00:05:16
+================================================================================
+To: john@msu.edu
+Subject: Congratulations! You've Received an MSA Scholarship Award
+
+Body:
+Dear John Doe,
+
+Congratulations! You have been selected to receive a scholarship award from the Michigan State University Master of Science in Accounting program.
+
+AWARD DETAILS:
+==============
+Total Award Amount: $5,000.00
+Scholarship(s): E&Y
+
+• E&Y: $5,000.00\n
+
+Your award will help support your academic journey. Thank you for your dedication to excellence in accounting.
+
+Please contact the MSA Program office if you have any questions.
+
+Best regards,
+MSA Program Scholarship Committee
+Michigan State University
+
+
+Award ID: 2
+Student: John Doe
+Scholarship: E&Y
+Amount: $5000.00
+================================================================================
+
+================================================================================
+Email Log Entry - 2026-04-16 00:05:16
+================================================================================
+To: chloe@msu.edu
+Subject: Congratulations! You've Received an MSA Scholarship Award
+
+Body:
+Dear Chloe Scott,
+
+Congratulations! You have been selected to receive a scholarship award from the Michigan State University Master of Science in Accounting program.
+
+AWARD DETAILS:
+==============
+Total Award Amount: $5,000.00
+Scholarship(s): BDO
+
+• BDO: $5,000.00\n
+
+Your award will help support your academic journey. Thank you for your dedication to excellence in accounting.
+
+Please contact the MSA Program office if you have any questions.
+
+Best regards,
+MSA Program Scholarship Committee
+Michigan State University
+
+
+Award ID: 4
+Student: Chloe Scott
+Scholarship: BDO
+Amount: $5000.00
+================================================================================
+
+================================================================================
+Email Log Entry - 2026-04-16 00:05:16
+================================================================================
+To: raghav@msu.edu
+Subject: Congratulations! You've Received an MSA Scholarship Award
+
+Body:
+Dear Raghav TN,
+
+Congratulations! You have been selected to receive a scholarship award from the Michigan State University Master of Science in Accounting program.
+
+AWARD DETAILS:
+==============
+Total Award Amount: $5,000.00
+Scholarship(s): E&Y
+
+• E&Y: $5,000.00\n
+
+Your award will help support your academic journey. Thank you for your dedication to excellence in accounting.
+
+Please contact the MSA Program office if you have any questions.
+
+Best regards,
+MSA Program Scholarship Committee
+Michigan State University
+
+
+Award ID: 5
+Student: Raghav TN
+Scholarship: E&Y
+Amount: $5000.00
+================================================================================
+
+================================================================================
+Email Log Entry - 2026-04-19 12:21:43
+================================================================================
+To: alex@msu.edu
+Subject: Congratulations! You've Received an MSA Scholarship Award
+
+Body:
+Dear Alex Marineau,
+
+Congratulations! You have been selected to receive a scholarship award from the Michigan State University Master of Science in Accounting program.
+
+AWARD DETAILS:
+==============
+Total Award Amount: $5,000.00
+Scholarship(s): E&Y
+
+• E&Y: $5,000.00\n
+
+Your award will help support your academic journey. Thank you for your dedication to excellence in accounting.
+
+Please contact the MSA Program office if you have any questions.
+
+Best regards,
+MSA Program Scholarship Committee
+Michigan State University
+
+
+Award ID: 3
+Student: Alex Marineau
+Scholarship: E&Y
+Amount: $5000.00
+================================================================================
+
+================================================================================
+Email Log Entry - 2026-04-19 12:22:22
+================================================================================
+To: john.smith@msu.edu
+Subject: Congratulations! You've Received an MSA Scholarship Award
+
+Body:
+Dear John Michael Smith,
+
+Congratulations! You have been selected to receive a scholarship award from the Michigan State University Master of Science in Accounting program.
+
+AWARD DETAILS:
+==============
+Total Award Amount: $5,000.00
+Scholarship(s): BDO
+
+• BDO: $5,000.00\n
+
+Your award will help support your academic journey. Thank you for your dedication to excellence in accounting.
+
+Please contact the MSA Program office if you have any questions.
+
+Best regards,
+MSA Program Scholarship Committee
+Michigan State University
+
+
+Award ID: 7
+Student: John Michael Smith
+Scholarship: BDO
+Amount: $5000.00
+================================================================================
+
+================================================================================
+Email Log Entry - 2026-04-19 12:37:13
+================================================================================
+To: raina@msu.edu
+Subject: Congratulations! You've Received an MSA Scholarship Award
+
+Body:
+Dear Raina W,
+
+Congratulations! You have been selected to receive a scholarship award from the Michigan State University Master of Science in Accounting program.
+
+AWARD DETAILS:
+==============
+Total Award Amount: $5,000.00
+Scholarship(s): BDO
+
+• BDO: $5,000.00
+
+
+Your award will help support your academic journey. Thank you for your dedication to excellence in accounting.
+
+Please contact the MSA Program office if you have any questions.
+
+Best regards,
+MSA Program Scholarship Committee
+Michigan State University
+
+
+Award ID: 6
+Student: Raina W
+Scholarship: BDO
+Amount: $5000.00
+================================================================================
+
+================================================================================
+Email Log Entry - 2026-04-19 12:45:58
+================================================================================
+To: Ash@msu.edu
+Subject: Congratulations! You've Received an MSA Scholarship Award
+
+Body:
+Dear Ash A,
+
+Congratulations! You have been selected to receive a scholarship award from the Michigan State University Master of Science in Accounting program.
+
+AWARD DETAILS:
+==============
+Total Award Amount: $5,000.00
+Scholarship(s): BDO
+
+• BDO: $5,000.00
+
+
+Your award will help support your academic journey. Thank you for your dedication to excellence in accounting.
+
+Please contact the MSA Program office if you have any questions.
+
+Best regards,
+MSA Program Scholarship Committee
+Michigan State University
+
+
+Award ID: 8
+Student: Ash A
+Scholarship: BDO
+Amount: $5000.00
+================================================================================
+
+================================================================================
+Email Log Entry - 2026-04-19 12:45:58
+================================================================================
+To: goku@msu.edu
+Subject: Congratulations! You've Received an MSA Scholarship Award
+
+Body:
+Dear Goku G,
+
+Congratulations! You have been selected to receive a scholarship award from the Michigan State University Master of Science in Accounting program.
+
+AWARD DETAILS:
+==============
+Total Award Amount: $5,000.00
+Scholarship(s): BDO
+
+• BDO: $5,000.00
+
+
+Your award will help support your academic journey. Thank you for your dedication to excellence in accounting.
+
+Please contact the MSA Program office if you have any questions.
+
+Best regards,
+MSA Program Scholarship Committee
+Michigan State University
+
+
+Award ID: 9
+Student: Goku G
+Scholarship: BDO
+Amount: $5000.00
+================================================================================

@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}Login - MSA Scholarship Allocator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center" style="min-height: 100vh; display: flex; align-items: center;">
+        <div class="col-md-7">
+            <div class="card shadow-lg">
+                <div class="card-header text-center" style="padding: 40px; background: linear-gradient(135deg, #0d5a3d 0%, #0a3d2a 100%); color: white;">
+                    <h1 style="margin-bottom: 10px;">🎓 MSA Scholarship Allocator</h1>
+                    <p style="margin: 0; opacity: 0.9;">User Login</p>
+                </div>
+                <div class="card-body" style="padding: 40px;">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <!-- Role Toggle -->
+                    <div class="mb-4">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="evaluator-tab" data-bs-toggle="tab" data-bs-target="#evaluator-form" type="button" role="tab" aria-controls="evaluator-form" aria-selected="true">
+                                    👤 Evaluator
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin-form" type="button" role="tab" aria-controls="admin-form" aria-selected="false">
+                                    ⚙️ Administrator
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Evaluator Login Form -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="evaluator-form" role="tabpanel" aria-labelledby="evaluator-tab">
+                            <form method="POST">
+                                <input type="hidden" name="role" value="evaluator">
+                                
+                                <div class="mb-3">
+                                    <label for="evaluator-username" class="form-label"><strong>Username (Email)</strong></label>
+                                    <input type="email" class="form-control form-control-lg" id="evaluator-username" name="username" placeholder="example@msu.edu" value="evaluator@msu.edu" required>
+                                    <small class="text-muted">For testing: <code>evaluator@msu.edu</code></small>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="evaluator-password" class="form-label"><strong>Password</strong></label>
+                                    <input type="password" class="form-control form-control-lg" id="evaluator-password" name="password" placeholder="Enter password" required autofocus>
+                                    <small class="text-muted">For testing: <code>evaluator123</code></small>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    🔓 Login as Evaluator
+                                </button>
+                            </form>
+
+                            <div class="alert alert-light mt-4 border" role="alert">
+                                <strong>Evaluator Role:</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li>📤 Upload student applications</li>
+                                    <li>👁️ Review automatic scholarship matches</li>
+                                    <li>✅ Approve and set award amounts</li>
+                                    <li>📧 Send award notifications</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Administrator Login Form -->
+                        <div class="tab-pane fade" id="admin-form" role="tabpanel" aria-labelledby="admin-tab">
+                            <form method="POST">
+                                <input type="hidden" name="role" value="admin">
+                                
+                                <div class="mb-3">
+                                    <label for="admin-username" class="form-label"><strong>Username (Email)</strong></label>
+                                    <input type="email" class="form-control form-control-lg" id="admin-username" name="username" placeholder="example@msu.edu" value="admin@msu.edu" required>
+                                    <small class="text-muted">For testing: <code>admin@msu.edu</code></small>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="admin-password" class="form-label"><strong>Password</strong></label>
+                                    <input type="password" class="form-control form-control-lg" id="admin-password" name="password" placeholder="Enter password" required autofocus>
+                                    <small class="text-muted">For testing: <code>admin123</code></small>
+                                </div>
+
+                                <button type="submit" class="btn btn-success btn-lg w-100">
+                                    🔓 Login as Administrator
+                                </button>
+                            </form>
+
+                            <div class="alert alert-light mt-4 border" role="alert">
+                                <strong>Administrator Role:</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li>📋 Add/edit/delete scholarships</li>
+                                    <li>💰 Manage scholarship funds</li>
+                                    <li>📊 View system reports</li>
+                                    <li>⚙️ Configure eligibility settings</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Section -->
+            <div class="alert alert-info mt-4" role="alert">
+                <strong>First time?</strong> Use the credentials shown above to test the system. You can set your own credentials later.
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .nav-tabs .nav-link {
+        color: #0d5a3d;
+        border-color: transparent;
+    }
+    .nav-tabs .nav-link.active {
+        color: #0d5a3d;
+        border-bottom: 3px solid #0d5a3d;
+        background-color: transparent;
+    }
+    .nav-tabs .nav-link:hover {
+        color: #0a3d2a;
+        border-color: transparent;
+    }
+</style>
+{% endblock %}

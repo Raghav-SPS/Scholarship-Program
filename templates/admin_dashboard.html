@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - MSA Scholarship Allocator{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1 class="mb-4">⚙️ Administrator Dashboard</h1>
+
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>Admin Mode</strong> - You have access to scholarship management and system reports.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+
+    <div class="row pb-4">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-label text-muted">Total Scholarships</div>
+                <div class="stat-number">{{ stats.total_scholarships }}</div>
+                <a href="/scholarships" class="btn btn-sm btn-outline-primary mt-3">Manage</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-label text-muted">Total Students</div>
+                <div class="stat-number">{{ stats.total_students }}</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-label text-muted">Total Awards</div>
+                <div class="stat-number">{{ stats.total_awards }}</div>
+                <a href="/reports" class="btn btn-sm btn-outline-primary mt-3">View Reports</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">📋 Scholarship Management</h5>
+                </div>
+                <div class="card-body">
+                    <p>Add, edit, or delete scholarships from the system.</p>
+                    <a href="/scholarships" class="btn btn-primary btn-lg w-100">
+                        Manage Scholarships
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">📊 View Reports</h5>
+                </div>
+                <div class="card-body">
+                    <p>View allocation reports and fund utilization statistics.</p>
+                    <a href="/reports" class="btn btn-primary btn-lg w-100">
+                        View Reports
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">📈 Program Status</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <strong>Pending Approvals:</strong>
+                            <div class="stat-number" style="color: #ffc107;">{{ stats.pending_approvals }}</div>
+                        </div>
+                        <div class="col-md-3">
+                            <strong>Approved Awards:</strong>
+                            <div class="stat-number" style="color: #28a745;">{{ stats.approved_awards }}</div>
+                        </div>
+                        <div class="col-md-3">
+                            <strong>Active Students:</strong>
+                            <div class="stat-number" style="color: #0d5a3d;">{{ stats.total_students }}</div>
+                        </div>
+                        <div class="col-md-3">
+                            <strong>Total Scholarships:</strong>
+                            <div class="stat-number" style="color: #0d5a3d;">{{ stats.total_scholarships }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .stat-card {
+        background: white;
+        border-left: 4px solid #0d5a3d;
+        padding: 20px;
+        border-radius: 4px;
+        text-align: center;
+    }
+    .stat-number {
+        font-size: 2em;
+        font-weight: bold;
+        color: #0d5a3d;
+    }
+    .stat-label {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+</style>
+{% endblock %}

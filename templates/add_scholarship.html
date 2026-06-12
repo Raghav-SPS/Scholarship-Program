@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Scholarship - MSA Scholarship Allocator{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="mb-0">➕ Add New Scholarship</h2>
+                </div>
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <form method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="sort_name" class="form-label"><strong>Sort Name *</strong></label>
+                            <input type="text" class="form-control" id="sort_name" name="sort_name" placeholder="e.g., AIS, SABA, etc." required>
+                            <small class="form-text text-muted">Short identifier for the scholarship (typically 2-4 characters)</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="official_name" class="form-label"><strong>Official Name *</strong></label>
+                            <input type="text" class="form-control" id="official_name" name="official_name" placeholder="Full official name of the scholarship" required>
+                            <small class="form-text text-muted">Complete name as it appears in official records</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="account_number" class="form-label">Account Number</label>
+                            <input type="text" class="form-control" id="account_number" name="account_number" placeholder="Optional account number">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="available_amount" class="form-label"><strong>Available Amount</strong></label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="available_amount" name="available_amount" step="0.01" placeholder="0.00">
+                            </div>
+                            <small class="form-text text-muted">Total funds available for this scholarship</small>
+                        </div>
+
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h5 class="mb-0">Eligibility</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ug_eligible" name="ug_eligible" checked>
+                                    <label class="form-check-label" for="ug_eligible">
+                                        Undergraduate Students Eligible
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ms_eligible" name="ms_eligible" checked>
+                                    <label class="form-check-label" for="ms_eligible">
+                                        Master's Students Eligible
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h5 class="mb-0">Availability</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="fall_award" name="fall_award" checked>
+                                    <label class="form-check-label" for="fall_award">
+                                        Available for Fall Award
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="spring_award" name="spring_award" checked>
+                                    <label class="form-check-label" for="spring_award">
+                                        Available for Spring Award
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="restrictions" class="form-label">Restrictions</label>
+                            <textarea class="form-control" id="restrictions" name="restrictions" rows="3" placeholder="Any eligibility restrictions or special requirements"></textarea>
+                            <small class="form-text text-muted">e.g., 'GPA must be above 3.5', 'Accounting majors only'</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="notes" class="form-label">Notes</label>
+                            <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Additional notes about this scholarship"></textarea>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                ✅ Add Scholarship
+                            </button>
+                            <a href="{{ url_for('manage_scholarships') }}" class="btn btn-secondary btn-lg">
+                                ❌ Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Bootstrap form validation
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+{% endblock %}

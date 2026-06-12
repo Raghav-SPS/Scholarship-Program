@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Applications - MSA Scholarship Allocator{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1 class="mb-4">📤 Upload Student Applications</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">📥 Upload Applications (CSV or Excel)</h5>
+                </div>
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="file" class="form-label"><strong>Select a File (CSV or Excel)</strong></label>
+                            <input type="file" class="form-control form-control-lg" id="file" name="file" accept=".csv,.xlsx,.xls" required>
+                            <div class="form-text">
+                                Supported formats: CSV (.csv), Excel (.xlsx, .xls)
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning" role="alert">
+                            <strong>⚠️ File Requirements:</strong>
+                            <ul class="mb-0 mt-2">
+                                <li>Maximum file size: 16 MB</li>
+                                <li>First row must contain column headers (see sample format below)</li>
+                                <li>Student Last Name is required for each row</li>
+                                <li>Program Level must be 'UG' (Undergraduate) or 'MS' (Master's)</li>
+                                <li>Financial Need must be 'H' (High), 'M' (Medium), or 'L' (Low)</li>
+                            </ul>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            ✅ Upload & Process
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0">📋 Column Descriptions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Column Name</th>
+                                    <th>Description</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Student ID</strong></td>
+                                    <td>Unique identifier (required if no other ID available)</td>
+                                    <td>20240001</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Student First Name</strong></td>
+                                    <td>Student's first name</td>
+                                    <td>John</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Student Middle Name</strong></td>
+                                    <td>Student's middle name (optional)</td>
+                                    <td>Michael</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Student Last Name</strong></td>
+                                    <td>Student's last name (REQUIRED)</td>
+                                    <td>Smith</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Email</strong></td>
+                                    <td>Student's email address</td>
+                                    <td>john.smith@msu.edu</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>GPA</strong></td>
+                                    <td>Grade Point Average (0.00 - 4.00)</td>
+                                    <td>3.85</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Program Level</strong></td>
+                                    <td>UG or MS</td>
+                                    <td>MS</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Financial Need</strong></td>
+                                    <td>H, M, or L</td>
+                                    <td>H</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Permanent Position At</strong></td>
+                                    <td>Current employer (optional)</td>
+                                    <td>Deloitte</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Internship 2025 At</strong></td>
+                                    <td>2025 internship company (optional)</td>
+                                    <td>EY</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Internship 2026 At</strong></td>
+                                    <td>2026 internship company (optional)</td>
+                                    <td>KPMG</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Extracurricular Activities</strong></td>
+                                    <td>Student activities and memberships</td>
+                                    <td>VITA, Accounting Club</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>College Activities</strong></td>
+                                    <td>College/campus involvement</td>
+                                    <td>Student Government, Club Officer</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Work Experience</strong></td>
+                                    <td>Previous work and internship experience</td>
+                                    <td>Auditor - 2 years, Intern at Big 4 - 1 year</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-success">
+                    <h5 class="mb-0">📥 Sample Format</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Need a template?</strong></p>
+                    <p>Download our professionally formatted sample file with clear instructions and an example:</p>
+                    <a href="{{ url_for('download_sample_format') }}" class="btn btn-success btn-lg w-100 mt-2">
+                        ⬇️ Download Sample Excel File
+                    </a>
+                    <div class="alert alert-info mt-3 small">
+                        <strong>💡 Tip:</strong> The sample file contains:
+                        <ul class="mb-0">
+                            <li>Clear instructions</li>
+                            <li>Column descriptions</li>
+                            <li>Real example data</li>
+                            <li>Blank row for your data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="mb-0">✅ Processing Steps</h5>
+                </div>
+                <div class="card-body small">
+                    <ol>
+                        <li>✓ File is validated</li>
+                        <li>✓ Students are created in system</li>
+                        <li>✓ Eligibility data recorded</li>
+                        <li>✓ Applications are scored</li>
+                        <li>✓ Scholarships are matched</li>
+                        <li>✓ You review suggested awards</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="mb-0">🔒 Manage Scholarships</h5>
+                </div>
+                <div class="card-body">
+                    <p class="small">Need to add or update scholarships first?</p>
+                    <a href="{{ url_for('manage_scholarships') }}" class="btn btn-outline-primary btn-sm w-100">
+                        Go to Scholarships
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Bootstrap form validation
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+{% endblock %}
