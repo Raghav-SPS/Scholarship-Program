@@ -34,6 +34,83 @@ db.init_app(app)
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 
+SAMPLE_SCHOLARSHIPS = [
+    {
+        'sort_name': 'ACADEMIC EXCELLENCE',
+        'official_name': 'Academic Excellence Scholarship',
+        'account_number': 'ACC-001',
+        'ug_eligible': True, 'ms_eligible': True,
+        'fall_award': True, 'spring_award': True,
+        'available_amount': Decimal('30000'),
+        'restrictions': 'Minimum 3.5 GPA required',
+        'notes': 'Awarded to top academic performers'
+    },
+    {
+        'sort_name': 'MERIT AWARD',
+        'official_name': 'Merit Scholarship Award',
+        'account_number': 'ACC-002',
+        'ug_eligible': True, 'ms_eligible': False,
+        'fall_award': True, 'spring_award': False,
+        'available_amount': Decimal('20000'),
+        'restrictions': 'Undergraduate students only',
+        'notes': 'Recognizes outstanding undergraduate achievement'
+    },
+    {
+        'sort_name': 'GRADUATE LEADERSHIP',
+        'official_name': 'Graduate Leadership Scholarship',
+        'account_number': 'ACC-003',
+        'ug_eligible': False, 'ms_eligible': True,
+        'fall_award': True, 'spring_award': True,
+        'available_amount': Decimal('25000'),
+        'restrictions': 'Graduate students only; demonstrated leadership required',
+        'notes': 'For students with strong leadership backgrounds'
+    },
+    {
+        'sort_name': 'FINANCIAL NEED',
+        'official_name': 'Financial Need Assistance Grant',
+        'account_number': 'ACC-004',
+        'ug_eligible': True, 'ms_eligible': True,
+        'fall_award': True, 'spring_award': True,
+        'available_amount': Decimal('40000'),
+        'restrictions': 'High financial need required',
+        'notes': 'Priority given to students with high financial need'
+    },
+    {
+        'sort_name': 'PROFESSIONAL DEVELOPMENT',
+        'official_name': 'Professional Development Scholarship',
+        'account_number': 'ACC-005',
+        'ug_eligible': False, 'ms_eligible': True,
+        'fall_award': False, 'spring_award': True,
+        'available_amount': Decimal('15000'),
+        'restrictions': 'Must have internship or work experience',
+        'notes': 'For students with strong professional backgrounds'
+    },
+    {
+        'sort_name': 'COMMUNITY SERVICE',
+        'official_name': 'Community Service Award',
+        'account_number': 'ACC-006',
+        'ug_eligible': True, 'ms_eligible': True,
+        'fall_award': True, 'spring_award': True,
+        'available_amount': Decimal('10000'),
+        'restrictions': 'Demonstrated community involvement required',
+        'notes': 'Recognizes students with strong extracurricular contributions'
+    },
+]
+
+
+def seed_sample_data():
+    """Seed database with sample scholarships when no real data files are present."""
+    if Scholarship.query.count() > 0:
+        return  # Already has data, skip seeding
+
+    print("No scholarships found. Seeding sample data for demo...")
+    for data in SAMPLE_SCHOLARSHIPS:
+        scholarship = Scholarship(**data)
+        db.session.add(scholarship)
+    db.session.commit()
+    print(f"Seeded {len(SAMPLE_SCHOLARSHIPS)} sample scholarships.")
+
+
 def init_db():
     """Initialize database with tables."""
     with app.app_context():
@@ -1204,4 +1281,5 @@ if __name__ == '__main__':
     with app.app_context():
         init_db()
         load_scholarships_from_excel()
+        seed_sample_data()
     app.run(debug=app.config['DEBUG'], host='0.0.0.0', port=5000)
